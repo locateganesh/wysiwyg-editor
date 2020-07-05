@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Editor</title>
+    <link rel="stylesheet" href="css/grapes.min.css">
+    <script src="grapes.min.js"></script>
+    <style>
+        html, body{
+            height:100%;
+        }
+        body{margin:0;}
+    </style>
+</head>
+<body>
+    
+    <div id="gjs" style="height:0px; overflow:hidden;">
+        <div class="editor">
+            <div class="editor__box">
+                <div id="froala-editor" class="popup">
+                    <div class="popup__inBox">
+                        <div class="popup__stars">
+                            <svg viewBox="0 0 24 24" class="popup__starsSmall">
+                                <path fill="#c75943" d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279-7.416-3.967-7.417 3.967 1.481-8.279-6.064-5.828 8.332-1.151z"/>
+                            </svg>
+                            <svg viewBox="0 0 24 24" class="popup__starsBig">
+                                <path fill="#c75943" d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279-7.416-3.967-7.417 3.967 1.481-8.279-6.064-5.828 8.332-1.151z"/>
+                            </svg>
+                            <svg viewBox="0 0 24 24" class="popup__starsSmall">
+                                <path fill="#c75943" d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279-7.416-3.967-7.417 3.967 1.481-8.279-6.064-5.828 8.332-1.151z"/>
+                            </svg>
+                        </div>
+                        <div class="popup__ttitle" contenteditable="true">רוצה לקבל ממנ עדכון כל פעם שיש משהו חדש?</div>
+                        <div class="popup__Form">
+                            <form action="">
+                                <div class="" style="padding:5px;">
+                                    <input type="text" class="popup__input" name="" id="" placeholder="מייל:">
+                                </div>
+                                <div class="popup__form-gorup" style="padding:5px;">
+                                    <button type="submit" class="popup__Submit"><span class="">להרשמה</span></button>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="inline-editor popup__disclaimer">(ניתן להסיר את המייל מרשימת התפוצה בכל עת)</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <style>
+            /** popup **/
+            .popup{
+               width:500px;
+               height:500px;
+               background: #e07a5f;
+               border-radius:100%;
+               margin:0 auto;
+               padding:10px;
+               color: #fff;
+               direction: rtl;
+               text-align: center;
+               font-family: 'Open Sans', sans-serif;
+            }
+            
+            .popup__inBox{
+               width:100%;
+               height:100%;
+               border-radius:100%;
+               border:2px solid #fff;
+            }
+            .popup__stars{
+               margin-top:20px;
+            }
+            .popup__stars svg{
+              display: inline-block;
+              position: relative;
+            }
+            .popup__ttitle{
+               font-size:28px;
+               font-weight:700;
+               max-width:280px;
+               margin:40px auto 0;
+               line-height:1.2;
+            }
+            .popup__Form{
+               max-width:355px;
+               margin:30px auto 20px;
+            }
+            .popup__input, .popup__Submit{
+              width:100%;
+              border:0;
+              outline:0;
+            }
+            .popup__input{
+              font-family:'Open Sans', sans-serif;
+              padding:10px 18px;
+              font-size:22px;
+              border-radius:10px;
+            }
+            .popup__Submit{
+              background:#414142;
+              color: #fff;
+              font-weight:700;
+              border-radius:10px;
+              font-size:35px; 
+              padding:12px 10px;
+            }
+            .popup__disclaimer{
+               font-size:15px;
+               font-weight:300;
+            }
+            .popup__starsSmall{
+                width:28px;height:28px; top:6px;
+            }
+            .popup__starsBig{
+                width:40px;height:40px; margin-left:25px; margin-right:25px;
+            }
+            .popup__form-gorup{margin-top:23px;}
+            @media(max-width:520px){
+                .popup{
+                    width:315px;
+                    height:315px;
+                }
+                .popup__starsBig{
+                    width:30px;
+                    height:30px;
+                }
+                .popup__starsSmall{
+                    width:18px;height:18px;
+                }
+                .popup__stars{margin-top:10px;}
+                .popup__ttitle{
+                    font-size: 20px;
+                    max-width: 230px;
+                    margin-top: 20px;
+                }
+                .popup__Form{
+                    max-width: 235px;
+                    margin-top:15px;
+                    margin-bottom: 10;
+                    margin-bottom:0;
+                }
+                .popup__Submit{
+                    font-size: 25px;
+                }
+                .popup__form-gorup{margin-top:5px;}
+                .popup__input{
+                    padding:5px 8px;
+                }
+                .popup__Submit{
+                    padding:6px 8px;
+                }
+                .popup__input, .popup__Submit{
+                    border-radius:5px;
+                }
+                .popup__disclaimer{
+                    font-size: 14px;
+                    max-width: 196px;
+                    margin: -12px auto 0;
+                }
+            }
+           
+            /** popup **/
+        </style>
+    </div>
+    <!--<div style="margin-top:-36px; position:relative; z-index:999; padding:0 20px;">
+        <button id="getCode">Save</button>
+    </div>-->
+
+    
+    <script type="text/javascript">
+      var editor = grapesjs.init({
+        showOffsets: 1,
+        noticeOnUnload: 0,
+        container: '#gjs',
+        height: '100%',
+        fromElement: true,
+        storageManager: { autoload: 0 },
+        styleManager : {
+          
+        },
+      });
+
+      editor.BlockManager.add('testBlock', {
+        label: 'Block',
+        attributes: { class:'gjs-fonts gjs-f-b1' },
+        content: `<div style="padding-top:50px; padding-bottom:50px; text-align:center">Test block</div>`
+      });
+
+      // get code
+      /*document.getElementById('getCode').addEventListener('click', function(){
+        document.querySelector('CodeMirror-code').select();
+      });*/
+
+    </script>
+</body>
+</html>
